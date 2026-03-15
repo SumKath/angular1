@@ -1,47 +1,76 @@
-<main class="page">
-  <h1>Beginner CV Builder</h1>
-  <p>Fill in the form to build your CV preview instantly.</p>
+<main class="cv-page">
+  <article class="cv-card">
+    <header class="cv-header">
+      <h1>Curriculum Vitae</h1>
+    </header>
 
-  <section class="layout">
-    <form [formGroup]="cvForm" class="card form-card">
-      <h2>CV Form</h2>
-
-      <label for="name">Name</label>
-      <input id="name" type="text" formControlName="name" placeholder="Jane Doe" />
-      @if (cvForm.controls.name.invalid && cvForm.controls.name.touched) {
-        <small class="error">Name is required.</small>
-      }
-
-      <label for="email">Email</label>
-      <input id="email" type="email" formControlName="email" placeholder="jane@email.com" />
-      @if (cvForm.controls.email.invalid && cvForm.controls.email.touched) {
-        <small class="error">Enter a valid email address.</small>
-      }
-
-      <label for="skills">Skills (comma separated)</label>
-      <textarea
-        id="skills"
-        rows="5"
-        formControlName="skills"
-        placeholder="Angular, TypeScript, HTML, CSS"
-      ></textarea>
-    </form>
-
-    <section class="card preview-card">
-      <h2>CV Preview</h2>
-      <h3>{{ cvForm.controls.name.value || 'Your Name' }}</h3>
-      <p><strong>Email:</strong> {{ cvForm.controls.email.value || 'your@email.com' }}</p>
-
-      <h4>Skills</h4>
-      @if (skillsList.length > 0) {
-        <ul>
-          @for (skill of skillsList; track skill) {
-            <li>{{ skill }}</li>
-          }
-        </ul>
-      } @else {
-        <p class="placeholder">Add skills in the form to show them here.</p>
-      }
+    <section class="cv-section">
+      <h2>Personal Information</h2>
+      <div class="info-grid">
+        <p><strong>Name:</strong> Sumaya Hassan Mohsin Alkathiri</p>
+        <p><strong>Manpower Register Number:</strong> —</p>
+        <p><strong>Civil Number:</strong> —</p>
+        <p><strong>Date of Birth:</strong> 11/6/1987</p>
+        <p><strong>Place of Birth:</strong> Salalah</p>
+        <p><strong>Sex:</strong> Female</p>
+        <p><strong>Nationality:</strong> Omani</p>
+        <p><strong>Marital Status:</strong> Single</p>
+        <p><strong>Address:</strong> Dhofar, Salalah</p>
+        <p><strong>Phone:</strong> 98238938, 96553553</p>
+        <p><strong>Email:</strong> <a href="mailto:tatoh87@gmail.com">tatoh87@gmail.com</a></p>
+      </div>
     </section>
-  </section>
+
+    <section class="cv-section">
+      <h2>Education</h2>
+      <div class="entry">
+        <p class="entry-date">2013</p>
+        <div>
+          <p>Bachelor level in Information Technology - Internet and E-Security Specialization</p>
+          <p>Grade (Very Good)</p>
+          <p>General Education Diploma</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h2>Professional Qualifications</h2>
+      <div class="entry"><p class="entry-date">2 March 2010</p><p>ICDL Certificate</p></div>
+      <div class="entry"><p class="entry-date">26 Aug 2013</p><p>Workshop in e.Oman</p></div>
+      <div class="entry"><p class="entry-date">21 Aug 2014</p><p>Workshop in e.Oman</p></div>
+    </section>
+
+    <section class="cv-section">
+      <h2>Experience</h2>
+      <div class="entry">
+        <p class="entry-date">16 Feb to 22 Apr 2013</p>
+        <p>Practical Training in Dhofar University</p>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h2>Skills</h2>
+      <ul>
+        <li>Fluent in the use of MS and Internet tools.</li>
+        <li>Strong teamwork and collaboration ability.</li>
+        <li>Continuously learning and developing new skills.</li>
+        <li>Able to adapt quickly to new regulations and situations.</li>
+        <li>Works confidently under pressure.</li>
+      </ul>
+    </section>
+
+    <section class="cv-section">
+      <h2>Languages</h2>
+      <div class="entry"><p class="entry-date">Arabic</p><p>Native language</p></div>
+      <div class="entry"><p class="entry-date">English</p><p>Good</p></div>
+    </section>
+
+    <section class="cv-section">
+      <h2>Reference</h2>
+      <p><strong>Name:</strong> Mansoor Ahmed Bakhit Al-hadhari</p>
+      <p><strong>Position:</strong> IT Technician, Royal Court Oman</p>
+      <p><strong>Mobile Number:</strong> 99299727</p>
+      <p><strong>Email:</strong> al-hadari@windowslive.com</p>
+    </section>
+  </article>
 </main>
