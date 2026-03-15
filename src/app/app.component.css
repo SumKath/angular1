@@ -1,52 +1,92 @@
-.page {
-  max-width: 1100px;
-  margin: 0 auto;
+:host {
+  display: block;
+}
+
+.cv-page {
+  min-height: 100vh;
   padding: 2rem 1rem;
+  background: linear-gradient(145deg, #eff2f7 0%, #e2e8f0 100%);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #1f2937;
 }
 
-h1 {
-  margin-bottom: 0.25rem;
+.cv-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 38px rgba(15, 23, 42, 0.12);
+  border: 1px solid #d1d5db;
 }
 
-.layout {
+.cv-header {
+  text-align: center;
+  margin-bottom: 1.8rem;
+}
+
+.cv-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  letter-spacing: 0.02em;
+}
+
+.cv-section + .cv-section {
+  margin-top: 1.4rem;
+}
+
+.cv-section h2 {
+  margin: 0 0 0.7rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color: #0f172a;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.25rem;
+}
+
+.info-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.4rem 1.2rem;
 }
 
-.card {
-  background: white;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.08);
+.entry {
+  display: grid;
+  grid-template-columns: minmax(150px, 210px) 1fr;
+  gap: 0.8rem;
+  margin: 0.3rem 0;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+.entry-date {
+  color: #334155;
+  font-weight: 600;
 }
 
-input,
-textarea {
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  padding: 0.6rem;
-  font-size: 0.95rem;
+p {
+  margin: 0.2rem 0;
+  line-height: 1.45;
 }
 
-input:focus,
-textarea:focus {
-  outline: 2px solid #93c5fd;
-  border-color: #60a5fa;
+ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
 }
 
-.error {
-  color: #b91c1c;
+li {
+  margin-bottom: 0.35rem;
 }
 
-.placeholder {
-  color: #64748b;
-  font-style: italic;
+a {
+  color: #1d4ed8;
+}
+
+@media (max-width: 700px) {
+  .cv-card {
+    padding: 1.4rem;
+  }
+
+  .entry {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
 }
