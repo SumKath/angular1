@@ -1,0 +1,47 @@
+<main class="page">
+  <h1>Beginner CV Builder</h1>
+  <p>Fill in the form to build your CV preview instantly.</p>
+
+  <section class="layout">
+    <form [formGroup]="cvForm" class="card form-card">
+      <h2>CV Form</h2>
+
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" placeholder="Jane Doe" />
+      @if (cvForm.controls.name.invalid && cvForm.controls.name.touched) {
+        <small class="error">Name is required.</small>
+      }
+
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" placeholder="jane@email.com" />
+      @if (cvForm.controls.email.invalid && cvForm.controls.email.touched) {
+        <small class="error">Enter a valid email address.</small>
+      }
+
+      <label for="skills">Skills (comma separated)</label>
+      <textarea
+        id="skills"
+        rows="5"
+        formControlName="skills"
+        placeholder="Angular, TypeScript, HTML, CSS"
+      ></textarea>
+    </form>
+
+    <section class="card preview-card">
+      <h2>CV Preview</h2>
+      <h3>{{ cvForm.controls.name.value || 'Your Name' }}</h3>
+      <p><strong>Email:</strong> {{ cvForm.controls.email.value || 'your@email.com' }}</p>
+
+      <h4>Skills</h4>
+      @if (skillsList.length > 0) {
+        <ul>
+          @for (skill of skillsList; track skill) {
+            <li>{{ skill }}</li>
+          }
+        </ul>
+      } @else {
+        <p class="placeholder">Add skills in the form to show them here.</p>
+      }
+    </section>
+  </section>
+</main>
