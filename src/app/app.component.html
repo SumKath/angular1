@@ -1,84 +1,56 @@
-<main class="cv-page">
-  <article class="cv-card">
-    <header class="cv-header">
-      <h1>Curriculum Vitae</h1>
-    </header>
+<main class="page">
+  <section class="card">
+    <h1>User Certificate Generator</h1>
+    <p class="subtitle">Build a certificate using Angular Reactive Forms.</p>
 
-    <section class="cv-section">
-      <h2>Personal Information</h2>
-      <div class="info-grid">
-        <p><strong>Name:</strong> Sumaya Hassan Mohsin Alkathiri</p>
-        <p><strong>Manpower Register Number:</strong> —</p>
-        <p><strong>Civil Number:</strong> —</p>
-        <p><strong>Date of Birth:</strong> 11/6/1987</p>
-        <p><strong>Place of Birth:</strong> Salalah</p>
-        <p><strong>Sex:</strong> Female</p>
-        <p><strong>Nationality:</strong> Omani</p>
-        <p><strong>Marital Status:</strong> Single</p>
-        <p><strong>Address:</strong> Dhofar, Salalah</p>
-        <p><strong>Phone:</strong> 98238938, 96553553</p>
-        <p><strong>Email:</strong> <a href="mailto:tatoh87&#64;gmail.com">tatoh87&#64;gmail.com</a></p>
-    
+    <form [formGroup]="certificateForm" (ngSubmit)="generateCertificate()" class="form-grid">
+      <label>
+        Full Name
+        <input type="text" formControlName="fullName" placeholder="Enter user full name" />
+        @if (fullName.touched && fullName.invalid) {
+          <small>Name is required (minimum 3 characters).</small>
+        }
+      </label>
 
+      <label>
+        Course / Achievement
+        <input type="text" formControlName="courseName" placeholder="Example: Angular Reactive Forms" />
+        @if (courseName.touched && courseName.invalid) {
+          <small>Course or achievement is required.</small>
+        }
+      </label>
 
+      <label>
+        Issue Date
+        <input type="date" formControlName="issueDate" />
+        @if (issueDate.touched && issueDate.invalid) {
+          <small>Issue date is required.</small>
+        }
+      </label>
 
-<p><strong>Email:</strong> al-hadari&#64;windowslive.com</p>
+      <label>
+        Issuer Name
+        <input type="text" formControlName="issuerName" placeholder="Organization or trainer name" />
+        @if (issuerName.touched && issuerName.invalid) {
+          <small>Issuer name is required.</small>
+        }
+      </label>
+
+      <button type="submit">Generate Certificate</button>
+    </form>
+  </section>
+
+  @if (submitted && certificateForm.valid) {
+    <section class="certificate">
+      <p class="heading">Certificate of Completion</p>
+      <h2>{{ fullName.value }}</h2>
+      <p>has successfully completed</p>
+      <h3>{{ courseName.value }}</h3>
+
+      <div class="meta">
+        <p><strong>Date:</strong> {{ issueDate.value }}</p>
+        <p><strong>Issued by:</strong> {{ issuerName.value }}</p>
       </div>
     </section>
-
-    <section class="cv-section">
-      <h2>Education</h2>
-      <div class="entry">
-        <p class="entry-date">2013</p>
-        <div>
-          <p>Bachelor level in Information Technology - Internet and E-Security Specialization</p>
-          <p>Grade (Very Good)</p>
-          <p>General Education Diploma</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="cv-section">
-      <h2>Professional Qualifications</h2>
-      <div class="entry"><p class="entry-date">2 March 2010</p><p>ICDL Certificate</p></div>
-      <div class="entry"><p class="entry-date">26 Aug 2013</p><p>Workshop in e.Oman</p></div>
-      <div class="entry"><p class="entry-date">21 Aug 2014</p><p>Workshop in e.Oman</p></div>
-    </section>
-
-    <section class="cv-section">
-      <h2>Experience</h2>
-      <div class="entry">
-        <p class="entry-date">16 Feb to 22 Apr 2013</p>
-        <p>Practical Training in Dhofar University</p>
-      </div>
-    </section>
-
-    <section class="cv-section">
-      <h2>Skills</h2>
-      <ul>
-        <li>Fluent in the use of MS and Internet tools.</li>
-        <li>Strong teamwork and collaboration ability.</li>
-        <li>Continuously learning and developing new skills.</li>
-        <li>Able to adapt quickly to new regulations and situations.</li>
-        <li>Works confidently under pressure.</li>
-      </ul>
-    </section>
-
-    <section class="cv-section">
-      <h2>Languages</h2>
-      <div class="entry"><p class="entry-date">Arabic</p><p>Native language</p></div>
-      <div class="entry"><p class="entry-date">English</p><p>Good</p></div>
-    </section>
-
-    <section class="cv-section">
-      <h2>Reference</h2>
-      <p><strong>Name:</strong> Mansoor Ahmed Bakhit Al-hadhari</p>
-      <p><strong>Position:</strong> IT Technician, Royal Court Oman</p>
-      <p><strong>Mobile Number:</strong> 99299727</p>
-  <p>
-  <strong>Email:</strong>
-  <a href="mailto:al-hadari&#64;windowslive.com">al-hadari&#64;windowslive.com</a>
-</p>
-    </section>
-  </article>
+  }
 </main>
